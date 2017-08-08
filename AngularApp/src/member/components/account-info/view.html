@@ -1,0 +1,321 @@
+<h4 class="text-uppercase">Member Information</h4>
+
+<form class="form" [formGroup]="form">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="col-md-12 no-left-padding">
+                    <label>Full Name
+                        <form-field-error-notice [control]="fullName"></form-field-error-notice>
+                    </label>
+                    <input type="text" class="form-control" formControlName="fullName">
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <div class="col-md-6  no-left-padding">
+                    <label>User Name
+                        <form-field-error-notice [control]="username"></form-field-error-notice>
+                    </label>
+                    <input type="text" class="form-control" formControlName="username">
+                </div>
+                <div class="col-md-6 no-left-padding ">
+                    <label>Email
+                        <form-field-error-notice [control]="email"></form-field-error-notice>
+                    </label>
+                    <input type="text" class="form-control" formControlName="email">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Practice Name
+            <form-field-error-notice [control]="practiceName"></form-field-error-notice>
+        </label>
+        <input type="text" class="form-control"  formControlName="practiceName">
+    </div>
+
+    <label>Private Contact Info (Not Visible to the Public)</label>
+    <br>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6  ">
+                <div class="col-md-6 no-left-padding">
+                    <label> Address Line 1
+                        <form-field-error-notice [control]="mailingAddress"></form-field-error-notice>
+                    </label>
+                    <input type="text" placeholder="Address Line 1" class="form-control"  formControlName="mailingAddress">
+                </div>
+                <div class="col-md-6 no-left-padding">
+                    <label> Address Line 2
+                        <form-field-error-notice [control]="mailingAddress2"></form-field-error-notice>
+                    </label>
+                    <input type="text" placeholder="Address Line 2" class="form-control" formControlName="mailingAddress2">
+                </div>
+            </div>
+            <div class="col-md-6  ">
+                <div class="col-md-6 no-left-padding">
+                    <label>Password
+                        <form-field-error-notice [control]="password"></form-field-error-notice>
+                    </label>
+                    <input type="password" class="form-control" formControlName="password">
+                </div>
+                <div class="col-md-6 no-left-padding ">
+                    <label>Password Confirmation
+                        <form-field-error-notice [control]="passwordConfirmation"></form-field-error-notice>
+                    </label>
+                    <input type="password" class="form-control" formControlName="passwordConfirmation">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-md-6 ">
+
+                <div class="col-md-6 no-left-padding">
+                    <label> City
+                        <form-field-error-notice [control]="mailingCity"></form-field-error-notice>
+                    </label>
+                    <input type="text" placeholder="City" class="form-control" formControlName="mailingCity">
+                </div>
+                <div class="col-md-6 no-left-padding">
+                    <label>State
+                        <form-field-error-notice [control]="mailingState"></form-field-error-notice>
+                    </label>
+                    <select class="form-control" formControlName="mailingState">
+                        <option *ngFor = "let item of referenceData.usStateNames" value = "{{item.key}}"> {{item.title}} </option>
+                    </select>
+                    <!--<input type="text" placeholder="State" class="form-control" ngControl="mailingState">-->
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <div class="col-md-12 no-left-padding">
+                    <label>Remittance Address
+                        <form-field-error-notice [control]="remittanceAddress"></form-field-error-notice>
+                    </label>
+                    <input type="text" class="form-control" formControlName="remittanceAddress">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="col-md-6 no-left-padding">
+                    <label> Zip
+                        <form-field-error-notice [control]="mailingPostalCode"></form-field-error-notice>
+                    </label>
+                    <input type="text" placeholder="Zip" class="form-control" formControlName="mailingPostalCode">
+                </div>
+                <div class="col-md-6 no-left-padding">
+                    <label> Private Phone Number
+                        <form-field-error-notice [control]="phoneNumber"></form-field-error-notice>
+                    </label>
+                    <input type="text" placeholder="Private Phone Number" class="form-control" formControlName="phoneNumber">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-6" style="padding-left:0px">
+                    <label>Cell Phone Number
+                        <form-field-error-notice [control]="cellphoneNumber"></form-field-error-notice>
+                    </label>
+                    <input type="text" class="form-control" formControlName="cellphoneNumber">
+                </div>
+                <div class="col-md-6 no-left-padding">
+                    <label>Subscribe to SMS Updates
+                        <form-field-error-notice [control]="subscriptionSMS"></form-field-error-notice>
+                        <input type="checkbox" class="form-control" formControlName="subscriptionSMS">
+                    </label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12 no-left-padding">
+                    <div class="form-group">
+                        <label>Time Zone
+                        <form-field-error-notice [control]="timeZone"></form-field-error-notice>
+                    </label>
+
+                        <select class="form-control"  formControlName="timeZone">
+                        <option value='Pacific/Midway'>International Date Line West</option>
+                        <option value='Pacific/Midway'>Midway Island</option>
+                        <option value='Pacific/Pago_Pago'>American Samoa</option>
+                        <option value='Pacific/Honolulu'>Hawaii</option>
+                        <option value='America/Juneau'>Alaska</option>
+                        <option value='America/Los_Angeles'>Pacific Time (US & Canada)</option>
+                        <option value='America/Tijuana'>Tijuana</option>
+                        <option value='America/Denver'>Mountain Time (US & Canada)</option>
+                        <option value='America/Phoenix'>Arizona</option>
+                        <option value='America/Chihuahua'>Chihuahua</option>
+                        <option value='America/Mazatlan'>Mazatlan</option>
+                        <option value='America/Chicago'>Central Time (US & Canada)</option>
+                        <option value='America/Regina'>Saskatchewan</option>
+                        <option value='America/Mexico_City'>Guadalajara</option>
+                        <option value='America/Mexico_City'>Mexico City</option>
+                        <option value='America/Monterrey'>Monterrey</option>
+                        <option value='America/Guatemala'>Central America</option>
+                        <option value='America/New_York'>Eastern Time (US & Canada)</option>
+                        <option value='America/Indiana/Indianapolis'>Indiana (East)</option>
+                        <option value='America/Bogota'>Bogota</option>
+                        <option value='America/Lima'>Lima</option>
+                        <option value='America/Lima'>Quito</option>
+                        <option value='America/Halifax'>Atlantic Time (Canada)</option>
+                        <option value='America/Caracas'>Caracas</option>
+                        <option value='America/La_Paz'>La Paz</option>
+                        <option value='America/Santiago'>Santiago</option>
+                        <option value='America/St_Johns'>Newfoundland</option>
+                        <option value='America/Sao_Paulo'>Brasilia</option>
+                        <option value='America/Argentina/Buenos_Aires'>Buenos Aires</option>
+                        <option value='America/Montevideo'>Montevideo</option>
+                        <option value='America/Guyana'>Georgetown</option>
+                        <option value='America/Godthab'>Greenland</option>
+                        <option value='Atlantic/South_Georgia'>Mid-Atlantic</option>
+                        <option value='Atlantic/Azores'>Azores</option>
+                        <option value='Atlantic/Cape_Verde'>Cape Verde Is.</option>
+                        <option value='Europe/Dublin'>Dublin</option>
+                        <option value='Europe/London'>Edinburgh</option>
+                        <option value='Europe/Lisbon'>Lisbon</option>
+                        <option value='Europe/London'>London</option>
+                        <option value='Africa/Casablanca'>Casablanca</option>
+                        <option value='Africa/Monrovia'>Monrovia</option>
+                        <option value='Etc/UTC'>UTC</option>
+                        <option value='Europe/Belgrade'>Belgrade</option>
+                        <option value='Europe/Bratislava'>Bratislava</option>
+                        <option value='Europe/Budapest'>Budapest</option>
+                        <option value='Europe/Ljubljana'>Ljubljana</option>
+                        <option value='Europe/Prague'>Prague</option>
+                        <option value='Europe/Sarajevo'>Sarajevo</option>
+                        <option value='Europe/Skopje'>Skopje</option>
+                        <option value='Europe/Warsaw'>Warsaw</option>
+                        <option value='Europe/Zagreb'>Zagreb</option>
+                        <option value='Europe/Brussels'>Brussels</option>
+                        <option value='Europe/Copenhagen'>Copenhagen</option>
+                        <option value='Europe/Madrid'>Madrid</option>
+                        <option value='Europe/Paris'>Paris</option>
+                        <option value='Europe/Amsterdam'>Amsterdam</option>
+                        <option value='Europe/Berlin'>Berlin</option>
+                        <option value='Europe/Berlin'>Bern</option>
+                        <option value='Europe/Rome'>Rome</option>
+                        <option value='Europe/Stockholm'>Stockholm</option>
+                        <option value='Europe/Vienna'>Vienna</option>
+                        <option value='Africa/Algiers'>West Central Africa</option>
+                        <option value='Europe/Bucharest'>Bucharest</option>
+                        <option value='Africa/Cairo'>Cairo</option>
+                        <option value='Europe/Helsinki'>Helsinki</option>
+                        <option value='Europe/Kiev'>Kyiv</option>
+                        <option value='Europe/Riga'>Riga</option>
+                        <option value='Europe/Sofia'>Sofia</option>
+                        <option value='Europe/Tallinn'>Tallinn</option>
+                        <option value='Europe/Vilnius'>Vilnius</option>
+                        <option value='Europe/Athens'>Athens</option>
+                        <option value='Europe/Istanbul'>Istanbul</option>
+                        <option value='Europe/Minsk'>Minsk</option>
+                        <option value='Asia/Jerusalem'>Jerusalem</option>
+                        <option value='Africa/Harare'>Harare</option>
+                        <option value='Africa/Johannesburg'>Pretoria</option>
+                        <option value='Europe/Kaliningrad'>Kaliningrad</option>
+                        <option value='Europe/Moscow'>Moscow</option>
+                        <option value='Europe/Moscow'>St. Petersburg</option>
+                        <option value='Europe/Volgograd'>Volgograd</option>
+                        <option value='Europe/Samara'>Samara</option>
+                        <option value='Asia/Kuwait'>Kuwait</option>
+                        <option value='Asia/Riyadh'>Riyadh</option>
+                        <option value='Africa/Nairobi'>Nairobi</option>
+                        <option value='Asia/Baghdad'>Baghdad</option>
+                        <option value='Asia/Tehran'>Tehran</option>
+                        <option value='Asia/Muscat'>Abu Dhabi</option>
+                        <option value='Asia/Muscat'>Muscat</option>
+                        <option value='Asia/Baku'>Baku</option>
+                        <option value='Asia/Tbilisi'>Tbilisi</option>
+                        <option value='Asia/Yerevan'>Yerevan</option>
+                        <option value='Asia/Kabul'>Kabul</option>
+                        <option value='Asia/Yekaterinburg'>Ekaterinburg</option>
+                        <option value='Asia/Karachi'>Islamabad</option>
+                        <option value='Asia/Karachi'>Karachi</option>
+                        <option value='Asia/Tashkent'>Tashkent</option>
+                        <option value='Asia/Kolkata'>Chennai</option>
+                        <option value='Asia/Kolkata'>Kolkata</option>
+                        <option value='Asia/Kolkata'>Mumbai</option>
+                        <option value='Asia/Kolkata'>New Delhi</option>
+                        <option value='Asia/Kathmandu'>Kathmandu</option>
+                        <option value='Asia/Dhaka'>Astana</option>
+                        <option value='Asia/Dhaka'>Dhaka</option>
+                        <option value='Asia/Colombo'>Sri Jayawardenepura</option>
+                        <option value='Asia/Almaty'>Almaty</option>
+                        <option value='Asia/Novosibirsk'>Novosibirsk</option>
+                        <option value='Asia/Rangoon'>Rangoon</option>
+                        <option value='Asia/Bangkok'>Bangkok</option>
+                        <option value='Asia/Bangkok'>Hanoi</option>
+                        <option value='Asia/Jakarta'>Jakarta</option>
+                        <option value='Asia/Krasnoyarsk'>Krasnoyarsk</option>
+                        <option value='Asia/Shanghai'>Beijing</option>
+                        <option value='Asia/Chongqing'>Chongqing</option>
+                        <option value='Asia/Hong_Kong'>Hong Kong</option>
+                        <option value='Asia/Urumqi'>Urumqi</option>
+                        <option value='Asia/Kuala_Lumpur'>Kuala Lumpur</option>
+                        <option value='Asia/Singapore'>Singapore</option>
+                        <option value='Asia/Taipei'>Taipei</option>
+                        <option value='Australia/Perth'>Perth</option>
+                        <option value='Asia/Irkutsk'>Irkutsk</option>
+                        <option value='Asia/Ulaanbaatar'>Ulaanbaatar</option>
+                        <option value='Asia/Seoul'>Seoul</option>
+                        <option value='Asia/Tokyo'>Osaka</option>
+                        <option value='Asia/Tokyo'>Sapporo</option>
+                        <option value='Asia/Tokyo'>Tokyo</option>
+                        <option value='Asia/Yakutsk'>Yakutsk</option>
+                        <option value='Australia/Darwin'>Darwin</option>
+                        <option value='Australia/Adelaide'>Adelaide</option>
+                        <option value='Australia/Melbourne'>Canberra</option>
+                        <option value='Australia/Melbourne'>Melbourne</option>
+                        <option value='Australia/Sydney'>Sydney</option>
+                        <option value='Australia/Brisbane'>Brisbane</option>
+                        <option value='Australia/Hobart'>Hobart</option>
+                        <option value='Asia/Vladivostok'>Vladivostok</option>
+                        <option value='Pacific/Guam'>Guam</option>
+                        <option value='Pacific/Port_Moresby'>Port Moresby</option>
+                        <option value='Asia/Magadan'>Magadan</option>
+                        <option value='Asia/Srednekolymsk'>Srednekolymsk</option>
+                        <option value='Pacific/Guadalcanal'>Solomon Is.</option>
+                        <option value='Pacific/Noumea'>New Caledonia</option>
+                        <option value='Pacific/Fiji'>Fiji</option>
+                        <option value='Asia/Kamchatka'>Kamchatka</option>
+                        <option value='Pacific/Majuro'>Marshall Is.</option>
+                        <option value='Pacific/Auckland'>Auckland</option>
+                        <option value='Pacific/Auckland'>Wellington</option>
+                        <option value='Pacific/Tongatapu'>Nuku'alofa</option>
+                        <option value='Pacific/Fakaofo'>Tokelau Is.</option>
+                        <option value='Pacific/Chatham'>Chatham Is.</option>
+                        <option value='Pacific/Apia'>Samoa</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="pull-right btn-toolbar">
+        <a class="btn btn-default" [class.hidden]="saving" (click)="onCancel()">Cancel</a>
+        <save-button (buttonClicked)="onSubmit()" [disabled]='!form.valid' [saving]="saving" ></save-button>
+    </div>
+    <div class="clearfix"></div>
+</form>
+
+<alert-modal #alertMessage></alert-modal>
+

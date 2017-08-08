@@ -1,0 +1,9 @@
+<div  *ngIf="_appService.pageLoaded">
+    <my-account-top-nav *ngIf="user && user.id" [user]="user"></my-account-top-nav>
+    <hr>
+    <referral-code *ngIf="user && user.id" [user]="user"></referral-code>
+    <error-list></error-list>
+    <hr>
+    <member-account-info *ngIf="user && user.id" [user]="user" (modelSaved)="onUserUpdate($event)"></member-account-info>
+    <hr>
+</div>
